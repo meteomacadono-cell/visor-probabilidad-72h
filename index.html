@@ -2,37 +2,43 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Modelo de Riesgo Aviar</title>
 
 <style>
+* {
+    box-sizing: border-box;
+}
+
 body {
     background: #0b0b0b;
     color: white;
     font-family: Arial, sans-serif;
-    max-width: 1150px;
+    width: 96%;
+    max-width: 1650px;
     margin: 0 auto;
     text-align: center;
 }
 
 h2 {
-    font-size: 15px;
-    color: #bdbdbd;
-    margin: 6px 0 4px 0;
+    font-size: 24px;
+    color: #d8d8d8;
+    margin: 14px 0 10px 0;
 }
 
 .tabs {
-    margin: 8px 0 10px 0;
+    margin: 10px 0 14px 0;
 }
 
 .tab {
     display: inline-block;
-    padding: 6px 16px;
+    padding: 8px 18px;
     background: #2a2a2a;
     color: white;
     border-radius: 8px;
     cursor: pointer;
     margin: 0 6px;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .tab.active {
@@ -52,18 +58,18 @@ h2 {
     justify-content: center;
     align-items: center;
     gap: 12px;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     flex-wrap: wrap;
 }
 
 .botones-inline {
     display: flex;
-    gap: 4px;
+    gap: 6px;
 }
 
 .botones-inline button {
-    padding: 3px 8px;
-    font-size: 12px;
+    padding: 5px 10px;
+    font-size: 13px;
     border-radius: 5px;
     background: #2a2a2a;
     color: white;
@@ -75,21 +81,47 @@ h2 {
     background: #444;
 }
 
+#mapa {
+    width: 100%;
+}
+
 #mapa_img {
-    width: 88%;
-    max-width: 1050px;
-    max-height: 68vh;
+    display: block;
+    width: 96%;
+    max-width: 1500px;
+    height: auto;
+    max-height: 82vh;
     object-fit: contain;
-    border-radius: 8px;
+    border-radius: 10px;
+    margin: 0 auto;
 }
 
 iframe {
-    width: 88%;
-    max-width: 1050px;
-    height: 68vh;
+    display: block;
+    width: 96%;
+    max-width: 1500px;
+    height: 82vh;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     background: #111;
+    margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+    h2 {
+        font-size: 18px;
+    }
+
+    .tab {
+        font-size: 13px;
+        padding: 7px 14px;
+    }
+
+    #mapa_img,
+    iframe {
+        width: 100%;
+        max-height: 75vh;
+    }
 }
 </style>
 </head>
@@ -113,7 +145,7 @@ iframe {
         </div>
     </div>
 
-    <img id="mapa_img" src="visor_riesgo_f000.png">
+    <img id="mapa_img" src="visor_riesgo_f000.png" alt="Mapa de riesgo aviar">
 </div>
 
 <div id="grafico" class="content">
