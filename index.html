@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Modelo de Riesgo Aviar</title>
+
+<style>
+body {
+    background: #0b0b0b;
+    color: white;
+    font-family: Arial, sans-serif;
+    max-width: 1150px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h2 {
+    font-size: 15px;
+    color: #bdbdbd;
+    margin: 6px 0 4px 0;
+}
+
+.tabs {
+    margin: 8px 0 10px 0;
+}
+
+.tab {
+    display: inline-block;
+    padding: 6px 16px;
+    background: #2a2a2a;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 0 6px;
+    font-size: 13px;
+}
+
+.tab.active {
+    background: #4a4a4a;
+}
+
+.content {
+    display: none;
+}
+
+.content.active {
+    display: block;
+}
+
+.barra-superior {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.botones-inline {
+    display: flex;
+    gap: 4px;
+}
+
+.botones-inline button {
+    padding: 3px 8px;
+    font-size: 12px;
+    border-radius: 5px;
+    background: #2a2a2a;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.botones-inline button:hover {
+    background: #444;
+}
+
+#mapa_img {
+    width: 88%;
+    max-width: 1050px;
+    max-height: 68vh;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+iframe {
+    width: 88%;
+    max-width: 1050px;
+    height: 68vh;
+    border: none;
+    border-radius: 8px;
+    background: #111;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Modelo Probabilístico de Riesgo Aviar (72 h)</h2>
+
+<div class="tabs">
+    <div class="tab active" onclick="mostrar('mapa', this)">🗺️ Mapa</div>
+    <div class="tab" onclick="mostrar('grafico', this)">📊 Evolución</div>
+</div>
+
+<div id="mapa" class="content active">
+    <div class="barra-superior">
+        <div class="botones-inline">
+            <button onclick="prev()">⏮</button>
+            <button onclick="play()">▶</button>
+            <button onclick="pause()">⏸</button>
+            <button onclick="next()">⏭</button>
+        </div>
+    </div>
+
+    <img id="mapa_img" src="visor_riesgo_f000.png">
+</div>
+
+<div id="grafico" class="content">
+    <iframe src="riesgo_evolucion_72h.html"></iframe>
+</div>
+
+<script>
+function mostrar(id, el) {
+    document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    el.classList.add('active');
+}
+
+let frames = [
+    "visor_riesgo_f000.png","visor_riesgo_f003.png","visor_riesgo_f006.png",
+    "visor_riesgo_f009.png","visor_riesgo_f012.png","visor_riesgo_f015.png",
+    "visor_riesgo_f018.png","visor_riesgo_f021.png","visor_riesgo_f024.png",
+    "visor_riesgo_f027.png","visor_riesgo_f030.png","visor_riesgo_f033.png",
+    "visor_riesgo_f036.png","visor_riesgo_f039.png","visor_riesgo_f042.png",
+    "visor_riesgo_f045.png","visor_riesgo_f048.png","visor_riesgo_f051.png",
+    "visor_riesgo_f054.png","visor_riesgo_f057.png","visor_riesgo_f060.png",
+    "visor_riesgo_f063.png","visor_riesgo_f066.png","visor_riesgo_f069.png",
+    "visor_riesgo_f072.png"
+];
+
+let i = 0;
+let intervalo = null;
+
+function mostrarFrame() {
+    document.getElementById("mapa_img").src = frames[i];
+}
+
+function next() {
+    i = (i + 1) % frames.length;
+    mostrarFrame();
+}
+
+function prev() {
+    i = (i - 1 + frames.length) % frames.length;
+    mostrarFrame();
+}
+
+function play() {
+    if (intervalo) return;
+    intervalo = setInterval(next, 900);
+}
+
+function pause() {
+    clearInterval(intervalo);
+    intervalo = null;
+}
+
+mostrarFrame();
+play();
+</script>
+
+</body>
+</html>
