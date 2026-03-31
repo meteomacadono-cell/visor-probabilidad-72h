@@ -26,20 +26,20 @@ body {
 
 .main-wrap {
     width: 100%;
-    max-width: 1920px;
+    max-width: 1500px;
     margin: 0 auto;
     padding: 10px 14px 18px 14px;
 }
 
 h2 {
-    font-size: 26px;
+    font-size: 24px;
     color: #f0f0f0;
-    margin: 4px 0 12px 0;
+    margin: 6px 0 12px 0;
     font-weight: 700;
 }
 
 .tabs {
-    margin: 4px 0 12px 0;
+    margin: 6px 0 12px 0;
 }
 
 .tab {
@@ -52,11 +52,6 @@ h2 {
     margin: 0 6px;
     font-size: 14px;
     border: 1px solid #333;
-    transition: 0.2s;
-}
-
-.tab:hover {
-    background: #303030;
 }
 
 .tab.active {
@@ -99,7 +94,6 @@ h2 {
     border: none;
     cursor: pointer;
     min-width: 40px;
-    transition: 0.2s;
 }
 
 .botones-inline button:hover {
@@ -124,21 +118,22 @@ h2 {
 
 #mapa_img {
     display: block;
-    width: 100%;
-    max-width: 1880px;
+    width: 94%;
+    max-width: 1350px;
     height: auto;
-    max-height: 88vh;
+    max-height: 78vh;
     object-fit: contain;
     border-radius: 12px;
     box-shadow: 0 0 0 1px #202020, 0 12px 30px rgba(0,0,0,0.45);
     background: #0b0b0b;
+    margin: 0 auto;
 }
 
 iframe {
     display: block;
-    width: 100%;
-    max-width: 1880px;
-    height: 88vh;
+    width: 94%;
+    max-width: 1350px;
+    height: 78vh;
     border: none;
     border-radius: 12px;
     background: #0b0b0b;
@@ -154,12 +149,13 @@ iframe {
 
 @media (max-width: 1200px) {
     h2 {
-        font-size: 22px;
+        font-size: 21px;
     }
 
     #mapa_img,
     iframe {
-        max-height: 82vh;
+        width: 98%;
+        max-height: 74vh;
     }
 }
 
@@ -191,7 +187,8 @@ iframe {
 
     #mapa_img,
     iframe {
-        max-height: 76vh;
+        width: 100%;
+        max-height: 68vh;
         border-radius: 8px;
     }
 }
