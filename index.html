@@ -26,37 +26,31 @@ body {
 
 .main-wrap {
     width: 100%;
-    max-width: 1500px;
+    max-width: none;
     margin: 0 auto;
-    padding: 10px 14px 18px 14px;
+    padding: 10px;
 }
 
 h2 {
     font-size: 24px;
-    color: #f0f0f0;
-    margin: 6px 0 12px 0;
-    font-weight: 700;
+    margin: 8px 0;
 }
 
 .tabs {
-    margin: 6px 0 12px 0;
+    margin-bottom: 10px;
 }
 
 .tab {
     display: inline-block;
     padding: 8px 18px;
     background: #232323;
-    color: white;
     border-radius: 8px;
     cursor: pointer;
     margin: 0 6px;
-    font-size: 14px;
-    border: 1px solid #333;
 }
 
 .tab.active {
     background: #4a4a4a;
-    border-color: #666;
 }
 
 .content {
@@ -68,168 +62,58 @@ h2 {
 }
 
 .barra-superior {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-    flex-wrap: wrap;
-}
-
-.botones-inline {
-    display: flex;
-    gap: 6px;
-    background: #111;
-    padding: 6px 8px;
-    border-radius: 10px;
-    border: 1px solid #262626;
+    margin-bottom: 8px;
 }
 
 .botones-inline button {
     padding: 6px 10px;
-    font-size: 13px;
-    border-radius: 6px;
     background: #2a2a2a;
-    color: white;
     border: none;
+    color: white;
+    margin: 2px;
     cursor: pointer;
-    min-width: 40px;
-}
-
-.botones-inline button:hover {
-    background: #444;
-}
-
-.estado-frame {
-    font-size: 13px;
-    color: #d0d0d0;
-    background: #111;
-    padding: 7px 12px;
-    border-radius: 8px;
-    border: 1px solid #262626;
-}
-
-.contenedor-mapa {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 #mapa_img {
-    display: block;
-    width: 94%;
-    max-width: 1350px;
-    height: auto;
-    max-height: 78vh;
+    width: 100%;
+    max-width: none;
+    max-height: 85vh;
     object-fit: contain;
-    border-radius: 12px;
-    box-shadow: 0 0 0 1px #202020, 0 12px 30px rgba(0,0,0,0.45);
-    background: #0b0b0b;
-    margin: 0 auto;
 }
 
 iframe {
-    display: block;
-    width: 94%;
-    max-width: 1350px;
-    height: 78vh;
+    width: 100%;
+    max-width: none;
+    height: 85vh;
     border: none;
-    border-radius: 12px;
-    background: #0b0b0b;
-    margin: 0 auto;
-    box-shadow: 0 0 0 1px #202020, 0 12px 30px rgba(0,0,0,0.45);
-}
-
-.footer-note {
-    margin-top: 10px;
-    font-size: 12px;
-    color: #9e9e9e;
-}
-
-@media (max-width: 1200px) {
-    h2 {
-        font-size: 21px;
-    }
-
-    #mapa_img,
-    iframe {
-        width: 98%;
-        max-height: 74vh;
-    }
-}
-
-@media (max-width: 900px) {
-    .main-wrap {
-        padding: 8px 8px 14px 8px;
-    }
-
-    h2 {
-        font-size: 18px;
-        margin-bottom: 10px;
-    }
-
-    .tab {
-        font-size: 13px;
-        padding: 7px 14px;
-        margin: 4px 4px;
-    }
-
-    .botones-inline button {
-        padding: 6px 8px;
-        font-size: 12px;
-        min-width: 36px;
-    }
-
-    .estado-frame {
-        font-size: 12px;
-    }
-
-    #mapa_img,
-    iframe {
-        width: 100%;
-        max-height: 68vh;
-        border-radius: 8px;
-    }
 }
 </style>
 </head>
 
 <body>
-<div class="main-wrap">
 
-    <h2>Modelo Probabilístico de Riesgo Aviar (72 h)</h2>
+<h2>Modelo Probabilístico de Riesgo Aviar (72 h)</h2>
 
-    <div class="tabs">
-        <div class="tab active" onclick="mostrar('mapa', this)">🗺️ Mapa</div>
-        <div class="tab" onclick="mostrar('grafico', this)">📊 Evolución</div>
-    </div>
+<div class="tabs">
+    <div class="tab active" onclick="mostrar('mapa', this)">Mapa</div>
+    <div class="tab" onclick="mostrar('grafico', this)">Evolución</div>
+</div>
 
-    <div id="mapa" class="content active">
-        <div class="barra-superior">
-            <div class="botones-inline">
-                <button onclick="prev()">⏮</button>
-                <button onclick="play()">▶</button>
-                <button onclick="pause()">⏸</button>
-                <button onclick="next()">⏭</button>
-            </div>
-
-            <div class="estado-frame" id="estado_frame">Frame: f000</div>
-        </div>
-
-        <div class="contenedor-mapa">
-            <img id="mapa_img" src="visor_riesgo_f000.png" alt="Mapa de riesgo aviar">
+<div id="mapa" class="content active">
+    <div class="barra-superior">
+        <div class="botones-inline">
+            <button onclick="prev()">⏮</button>
+            <button onclick="play()">▶</button>
+            <button onclick="pause()">⏸</button>
+            <button onclick="next()">⏭</button>
         </div>
     </div>
 
-    <div id="grafico" class="content">
-        <iframe src="riesgo_evolucion_72h.html"></iframe>
-    </div>
+    <img id="mapa_img" src="visor_riesgo_f000.png">
+</div>
 
-    <div class="footer-note">
-        Visualización automática del modelo probabilístico de riesgo aviar.
-    </div>
-
+<div id="grafico" class="content">
+    <iframe src="riesgo_evolucion_72h.html"></iframe>
 </div>
 
 <script>
@@ -241,21 +125,15 @@ function mostrar(id, el) {
 }
 
 let frames = [
-    "visor_riesgo_f000.png","visor_riesgo_f003.png","visor_riesgo_f006.png",
-    "visor_riesgo_f009.png","visor_riesgo_f012.png","visor_riesgo_f015.png",
-    "visor_riesgo_f018.png","visor_riesgo_f021.png","visor_riesgo_f024.png",
-    "visor_riesgo_f027.png","visor_riesgo_f030.png","visor_riesgo_f033.png",
-    "visor_riesgo_f036.png","visor_riesgo_f039.png","visor_riesgo_f042.png",
-    "visor_riesgo_f045.png","visor_riesgo_f048.png","visor_riesgo_f051.png",
-    "visor_riesgo_f054.png","visor_riesgo_f057.png","visor_riesgo_f060.png",
-    "visor_riesgo_f063.png","visor_riesgo_f066.png","visor_riesgo_f069.png",
-    "visor_riesgo_f072.png"
-];
-
-let etiquetas = [
-    "f000","f003","f006","f009","f012","f015","f018","f021","f024",
-    "f027","f030","f033","f036","f039","f042","f045","f048","f051",
-    "f054","f057","f060","f063","f066","f069","f072"
+"visor_riesgo_f000.png","visor_riesgo_f003.png","visor_riesgo_f006.png",
+"visor_riesgo_f009.png","visor_riesgo_f012.png","visor_riesgo_f015.png",
+"visor_riesgo_f018.png","visor_riesgo_f021.png","visor_riesgo_f024.png",
+"visor_riesgo_f027.png","visor_riesgo_f030.png","visor_riesgo_f033.png",
+"visor_riesgo_f036.png","visor_riesgo_f039.png","visor_riesgo_f042.png",
+"visor_riesgo_f045.png","visor_riesgo_f048.png","visor_riesgo_f051.png",
+"visor_riesgo_f054.png","visor_riesgo_f057.png","visor_riesgo_f060.png",
+"visor_riesgo_f063.png","visor_riesgo_f066.png","visor_riesgo_f069.png",
+"visor_riesgo_f072.png"
 ];
 
 let i = 0;
@@ -263,7 +141,6 @@ let intervalo = null;
 
 function mostrarFrame() {
     document.getElementById("mapa_img").src = frames[i];
-    document.getElementById("estado_frame").textContent = "Frame: " + etiquetas[i];
 }
 
 function next() {
@@ -278,7 +155,7 @@ function prev() {
 
 function play() {
     if (intervalo) return;
-    intervalo = setInterval(next, 950);
+    intervalo = setInterval(next, 900);
 }
 
 function pause() {
