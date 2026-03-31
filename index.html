@@ -2,51 +2,37 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Modelo de Riesgo Aviar</title>
 
 <style>
-* {
-    box-sizing: border-box;
-}
-
-html, body {
-    margin: 0;
-    padding: 0;
-    background: #050505;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
-}
-
 body {
-    width: 100%;
-    min-height: 100vh;
+    background: #0b0b0b;
+    color: white;
+    font-family: Arial, sans-serif;
+    max-width: 1150px;
+    margin: 0 auto;
     text-align: center;
 }
 
-.main-wrap {
-    width: 100%;
-    max-width: none;
-    margin: 0 auto;
-    padding: 10px;
-}
-
 h2 {
-    font-size: 24px;
-    margin: 8px 0;
+    font-size: 15px;
+    color: #bdbdbd;
+    margin: 6px 0 4px 0;
 }
 
 .tabs {
-    margin-bottom: 10px;
+    margin: 8px 0 10px 0;
 }
 
 .tab {
     display: inline-block;
-    padding: 8px 18px;
-    background: #232323;
+    padding: 6px 16px;
+    background: #2a2a2a;
+    color: white;
     border-radius: 8px;
     cursor: pointer;
     margin: 0 6px;
+    font-size: 13px;
 }
 
 .tab.active {
@@ -62,30 +48,48 @@ h2 {
 }
 
 .barra-superior {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
     margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.botones-inline {
+    display: flex;
+    gap: 4px;
 }
 
 .botones-inline button {
-    padding: 6px 10px;
+    padding: 3px 8px;
+    font-size: 12px;
+    border-radius: 5px;
     background: #2a2a2a;
-    border: none;
     color: white;
-    margin: 2px;
+    border: none;
     cursor: pointer;
 }
 
+.botones-inline button:hover {
+    background: #444;
+}
+
 #mapa_img {
-    width: 100%;
-    max-width: none;
-    max-height: 85vh;
+    width: 88%;
+    max-width: 1050px;
+    max-height: 68vh;
     object-fit: contain;
+    border-radius: 8px;
 }
 
 iframe {
-    width: 100%;
-    max-width: none;
-    height: 85vh;
+    width: 88%;
+    max-width: 1050px;
+    height: 68vh;
     border: none;
+    border-radius: 8px;
+    background: #111;
 }
 </style>
 </head>
@@ -95,8 +99,8 @@ iframe {
 <h2>Modelo Probabilístico de Riesgo Aviar (72 h)</h2>
 
 <div class="tabs">
-    <div class="tab active" onclick="mostrar('mapa', this)">Mapa</div>
-    <div class="tab" onclick="mostrar('grafico', this)">Evolución</div>
+    <div class="tab active" onclick="mostrar('mapa', this)">🗺️ Mapa</div>
+    <div class="tab" onclick="mostrar('grafico', this)">📊 Evolución</div>
 </div>
 
 <div id="mapa" class="content active">
@@ -125,15 +129,15 @@ function mostrar(id, el) {
 }
 
 let frames = [
-"visor_riesgo_f000.png","visor_riesgo_f003.png","visor_riesgo_f006.png",
-"visor_riesgo_f009.png","visor_riesgo_f012.png","visor_riesgo_f015.png",
-"visor_riesgo_f018.png","visor_riesgo_f021.png","visor_riesgo_f024.png",
-"visor_riesgo_f027.png","visor_riesgo_f030.png","visor_riesgo_f033.png",
-"visor_riesgo_f036.png","visor_riesgo_f039.png","visor_riesgo_f042.png",
-"visor_riesgo_f045.png","visor_riesgo_f048.png","visor_riesgo_f051.png",
-"visor_riesgo_f054.png","visor_riesgo_f057.png","visor_riesgo_f060.png",
-"visor_riesgo_f063.png","visor_riesgo_f066.png","visor_riesgo_f069.png",
-"visor_riesgo_f072.png"
+    "visor_riesgo_f000.png","visor_riesgo_f003.png","visor_riesgo_f006.png",
+    "visor_riesgo_f009.png","visor_riesgo_f012.png","visor_riesgo_f015.png",
+    "visor_riesgo_f018.png","visor_riesgo_f021.png","visor_riesgo_f024.png",
+    "visor_riesgo_f027.png","visor_riesgo_f030.png","visor_riesgo_f033.png",
+    "visor_riesgo_f036.png","visor_riesgo_f039.png","visor_riesgo_f042.png",
+    "visor_riesgo_f045.png","visor_riesgo_f048.png","visor_riesgo_f051.png",
+    "visor_riesgo_f054.png","visor_riesgo_f057.png","visor_riesgo_f060.png",
+    "visor_riesgo_f063.png","visor_riesgo_f066.png","visor_riesgo_f069.png",
+    "visor_riesgo_f072.png"
 ];
 
 let i = 0;
